@@ -78,6 +78,7 @@ const comprobarDomicilio = () => {
 
 const pedidoFinal = () => {
     let costoTotal = pedidoSolicitado();
+    let costoDomicilio = comprobarDomicilio();
     let mensaje = "";
     let comboSolicitado = asignarCombo();
     for (let i = 0; i < comboSolicitado.length; i++) {
@@ -94,7 +95,7 @@ const pedidoFinal = () => {
         }
         
     }
-    let costoFinal = costoTotal;
+    let costoFinal = costoTotal + costoDomicilio;
     return `${mensaje} \n Y el costo final del pedido es de: ${costoFinal}`;
 }
 

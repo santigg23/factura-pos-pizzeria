@@ -61,23 +61,22 @@ const repetir = () => {
 }
 
 const comprobarDomicilio = () => {
-    let costo = 0;
+    let costoPedido = pedidoSolicitado();
     let domicilio = prompt("¿Domicilio o recoger en tienda física? \n1. Domicilio \n2. Tienda física.");
     switch (domicilio) {
         case "1":
-            if (costo < 50000) {
-                return costo += 5000;
+            if (costoPedido < 50000) {
+                return costoPedido += 5000;
             } else {
-                return costo;
+                return costoPedido;
             }
         case "2":
-            return costo;
+            return costoPedido;
     }
     
 }
 
 const pedidoFinal = () => {
-    let costoTotal = pedidoSolicitado();
     let costoDomicilio = comprobarDomicilio();
     let mensaje = "";
     let comboSolicitado = asignarCombo();
@@ -95,7 +94,7 @@ const pedidoFinal = () => {
         }
         
     }
-    let costoFinal = costoTotal + costoDomicilio;
+    let costoFinal = costoDomicilio;
     return `${mensaje} \n Y el costo final del pedido es de: ${costoFinal}`;
 }
 
